@@ -5,7 +5,7 @@ import { getAutoCompleteDetails } from '../src'
 import { Address } from '../src/types';
 
 config(); // for loading common app configs, such as COUNTRY_SET
-config({path: `.env.test`}); // for loading API key for testing
+config({path: '.env.test'}); // for loading API key for testing
 
 // These are end-to-end tests and need an api key
 describe('Tomtom Places E2E Tests', () => {
@@ -18,12 +18,12 @@ describe('Tomtom Places E2E Tests', () => {
         it('can fetch from the autocomplete api', async () => {
             const res : Address[] = await getAutoCompleteDetails('Charlotte Street')
             const firstRes = res[0];
-            expect(firstRes).toHaveProperty('placeId')
-            expect(firstRes).toHaveProperty('streetNumber')
-            expect(firstRes).toHaveProperty('countryCode')
-            expect(firstRes).toHaveProperty('country')
-            expect(firstRes).toHaveProperty('freeformAddress')
-            expect(firstRes).toHaveProperty('municipality')
+            expect(firstRes).toHaveProperty('placeId');
+            expect(firstRes).toHaveProperty('streetNumber');
+            expect(firstRes).toHaveProperty('countryCode');
+            expect(firstRes).toHaveProperty('country');
+            expect(firstRes).toHaveProperty('freeformAddress');
+            expect(firstRes).toHaveProperty('municipality');
         })
 
         it('should fetch only Australian address', async () => {
@@ -37,11 +37,11 @@ describe('Tomtom Places E2E Tests', () => {
 
         it('handles no results', async () => {
             const res = await getPlaceAutocomplete(process.env.TOMTOM_API_KEY, 'asfasffasfasafsafs');
-            expect(res).toStrictEqual([])
+            expect(res).toStrictEqual([]);
         })
 
         it('handles error', async () => {
-            expect(getPlaceAutocomplete(process.env.TOMTOM_API_KEY, '')).rejects.toThrow()
+            expect(getPlaceAutocomplete(process.env.TOMTOM_API_KEY, '')).rejects.toThrow();
         })
     })
 

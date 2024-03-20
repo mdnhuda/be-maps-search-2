@@ -3,8 +3,6 @@ import { describe } from '@jest/globals'
 import { getPlaceAutocomplete } from '../src/maps-api'
 import * as axios from "axios";
 
-config(); // for loading common app configs, such as COUNTRY_SET
-
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
